@@ -18,7 +18,7 @@ async function getContactById(contactId) {
   try {
     const contacts = await listContacts();
     const contact = contacts.find((item) => item.id === contactId);
-    return contact;
+    return contact || null;
   } catch (error) {
     throw error;
   }
@@ -28,7 +28,16 @@ async function removeContact(contactId) {
   try {
     const contacts = await listContacts();
     const updatedContacts = contacts.filter((item) => item.id !== contactId);
-    await fs.writeFile(contactsPath, JSON.stringify(updatedContacts, null, 2));
+    if (contacts.length === updatedContacts.length) {
+      return null;
+    } else {
+      const contact = getContactById(contactId);
+      await fs.writeFile(
+        contactsPath,
+        JSON.stringify(updatedContacts, null, 2)
+      );
+      return contact;
+    }
   } catch (error) {
     throw error;
   }
