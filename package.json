@@ -1,0 +1,19 @@
+{
+  "name": "goit-node-hw-01-cli-app",
+  "version": "1.0.0",
+  "description": "My Node.js App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Nazar Mural",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "nanoid": "^2.1.11"
+  }
+}
