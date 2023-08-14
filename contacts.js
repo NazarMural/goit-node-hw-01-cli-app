@@ -4,7 +4,6 @@ const nanoid = require("nanoid");
 
 const contactsPath = path.join(__dirname, "db", "contacts.json");
 
-// TODO: задокументувати кожну функцію
 async function listContacts() {
   try {
     const data = await fs.readFile(contactsPath, "utf-8");
